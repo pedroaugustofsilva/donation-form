@@ -10,6 +10,59 @@
 </head>
 
 <body>
+  <main class="container">
+    <header class="campaign__header">
+      <h1 class="campaign__title">Holy Guacamole Fundraiser</h1>
+      <p class="campaign__summary">Join our quest to make the world's largest guacamole dish! Proceeds go towards our
+        church's new avocado-themed chapel.</p>
+      <div class="campaign__stats" data-component="stats">
+        <span class="campaign__goal">Goal: $10,000</span>
+        <span class="campaign__total">Total Donations: <span data-target-stats="totalDonations"></span></span>
+        <span class="campaign__raised">Raised: <span data-target-stats="raised"></span></span>
+      </div>
+    </header>
+    <form class="donation-form" id="donationForm" data-component="form" data-action-form="submit#submitForm">
+      <div class="donation-form__field" style="--min-field-size: 100%">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email"
+          data-target-form="email" data-action-form="blur#checkValidEmail">
+      </div>
+      <div class="donation-form__field">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="first_name" placeholder="Sherlock" required>
+      </div>
+      <div class="donation-form__field">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="last_name" placeholder="Holmes" required>
+      </div>
+      <div class="donation-form__field" style="--min-field-size: 100%">
+        <span>Donation Amount</span>
+        <div class="donation-form__amount">
+          <label for="amount_10">$10</label>
+          <input id="amount_10" type="radio" name="amount" value="10" data-target-form="amount" data-action-form="input#clearCustomAmount">
+
+          <label for="amount_50">$50</label>
+          <input id="amount_50" type="radio" name="amount" value="50" data-target-form="amount" data-action-form="input#clearCustomAmount">
+
+          <label for="amount_100">$100</label>
+          <input id="amount_100" type="radio" name="amount" value="100" data-target-form="amount" data-action-form="input#clearCustomAmount">
+
+          <input type="text" name="amount" placeholder="Other amount" id="customAmount" data-target-form="customAmount" inputmode="numeric"
+          data-action-form="input#clearAmounts">
+        </div>
+      </div>
+      <div class="donation-form__field">
+        <label>Donation Frequency</label>
+        <div class="donation-form__frequency">
+          <label for="oneTimeFrequency">One-time</label>
+          <input id="oneTimeFrequency" type="radio" name="frequency" value="one-time" checked>
+          <label for="monthlyFrequency">Monthly</label>
+          <input id="monthlyFrequency" type="radio" name="frequency" value="monthly">
+        </div>
+      </div>
+      <button type="submit">Donate</button>
+    </form>
+  </main>
 </body>
 
 </html>
