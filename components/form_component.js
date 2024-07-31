@@ -19,7 +19,6 @@ export class FormComponent extends BaseComponent {
     checkValidAmount() {
         const amount = this.amountDonated;
 
-        debugger
         if (!Number.isFinite(amount) || amount <= 0) {
             alert('The donation amount must be a valid number greater than 0');
             return false;
@@ -47,7 +46,6 @@ export class FormComponent extends BaseComponent {
     submitForm(e) {
         e.preventDefault();
 
-        debugger
         if (this.checkValidEmail() && this.checkValidAmount()) {
             this.app.notifyComponent('stats', 'increaseDonations');
             this.app.notifyComponent('stats', 'increaseDonationAmount', { amountDonated: this.amountDonated });
